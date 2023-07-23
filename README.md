@@ -47,7 +47,7 @@ where date(p.payment_date) = '2005-07-30' and p.payment_date = r.rental_date and
 
 ### Узкие места и их устранение
 
-1. Запрос слишком сложный и в нём используются избыточные таблицы Из запроса убираем фрагмент over (partition by c.customer_id, f.title) и оператор distinct. Так же убираем избыточные таблицы film и inventory :
+1. Запрос слишком сложный и в нём используются избыточные таблицы. Из запроса убираем фрагмент over (partition by c.customer_id, f.title) и оператор distinct. Так же убираем избыточные таблицы film и inventory :
 
 ```
 select concat(c.last_name, ' ', c.first_name), sum(p.amount)
